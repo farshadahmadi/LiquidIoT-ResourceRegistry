@@ -1,0 +1,16 @@
+/node_modules/
+*~
+*.swp
+npm-debug.log
+/*.json
+/*.yaml
+/*.jar
+/python/
+/dump/
+.project
+/*.txt
+err.log
+out.log
+start.sh
+stop.sh
+/dump-dev/

@@ -1,0 +1,49 @@
+{
+  "name": "averageTemperatureAlert",
+  "description": "Gives a sound alert if average temperature on devices in room TE113 is over 20.",
+  "apps": [
+     { "id": "temperatureapps", 
+       "app": ".measureTemperature", 
+       "device": "[location=TE113]"},
+    { "id": "soundapp",
+      "app": ".playSound",
+      "device": "#56ebc69bd501e1db2f0aa006" }
+  ],
+  "variables": {
+    "temperatures": {
+      "type": "Array",
+      "item": "Number"
+    },
+    "average": {
+      "type": "Number"
+    }
+  },
+  "components": [
+    {
+      "type": "operation",
+      "app": "temperatureapps",
+      "output": "temperatures",
+      "tag": "temperature",
+      "operationId": "temperatureGET"
+    },
+    {
+      "type": "average",
+      "input": "temperatures",
+      "output": "average"
+    },
+    {
+      "type": "if",
+      "operator": ">",
+      "input1": "average",
+      "value": 20,
+      "then": [
+        {
+          "type": "operation",
+          "app": "soundapp",
+          "tag": "sound",
+          "operationId": "makeSound"
+        }
+      ]
+    }
+  ]
+}
