@@ -23,3 +23,7 @@ This project is a nodejs application that uses MongoDB as a database:
 5- Optional change the TCP port the server will listen on by setting the environment variable PORT. By default the server listens on port 3000.
 
 6- Run the project. 'npm start'
+
+## LICENSE
+
+This project is under BSD New Licesne.
